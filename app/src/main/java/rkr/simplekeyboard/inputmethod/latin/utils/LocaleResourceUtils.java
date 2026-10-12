@@ -87,10 +87,12 @@ public final class LocaleResourceUtils {
             final String localeString = exceptionalLocales[i];
             final String resourceName = LOCALE_NAME_RESOURCE_PREFIX + localeString;
             final int resId = res.getIdentifier(resourceName, null, RESOURCE_PACKAGE_NAME);
-         if (resId == 0) {
+         if (resId != 0) {
+    sExceptionalLocaleToNameIdsMap.put(localeString, resId);
+} else {
     Log.e("LocaleResourceUtils", "Missing locale name: " + resourceName);
 }
-            sExceptionalLocaleToNameIdsMap.put(localeString, resId);
+
         }
     }
 
