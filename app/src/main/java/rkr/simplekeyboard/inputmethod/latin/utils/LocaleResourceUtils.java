@@ -173,9 +173,10 @@ public final class LocaleResourceUtils {
             exceptionalNameResId = null;
         }
 
-        if (exceptionalNameResId != null) {
-            return sResources.getString(exceptionalNameResId);
-        } else {
+        if (exceptionalNameResId != null && exceptionalNameResId != 0) {
+    return sResources.getString(exceptionalNameResId);
+} else {
+
             return LocaleUtils.constructLocaleFromString(localeString)
                     .getDisplayName(displayLocale);
         }
